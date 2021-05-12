@@ -11,7 +11,7 @@
 ```bash
 # yarn dev
 yarn start
-# http://localhost:3000/
+# http://localhost:8000/
 
 yarn build
 # ./build
