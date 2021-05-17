@@ -1,20 +1,15 @@
 import React, { useRef ,useEffect,useState, ReactNode} from 'react';
+import {toChartsProps} from '../types'
 
 
-interface toChartsProps {
-  context: any
-  width: any
-  height: any
-  rowChars: any
-}
 interface ImageToTextProps {
   sourceImg :string | ReactNode
 }
 
 const ImageToText = (props:ImageToTextProps) => {
   const {sourceImg} =props
-  const imgRef = useRef(null)
-  const cavRef = useRef(null)
+  const imgRef = useRef<any>(null)
+  const cavRef = useRef<any>(null)
   // const fileRef = useRef(null)
   // const file = fileRef.current?.files[0];
   const [code,setCode] = useState('');
@@ -34,19 +29,19 @@ const ImageToText = (props:ImageToTextProps) => {
 
   const toCharts = (imageContext: toChartsProps) => {
     const { context, width, height, rowChars } = imageContext
-    console.log(context)
+ 
     let newRowChars = width < rowChars ? width : rowChars;
     let output = "";
 
       const  imageData = context.getImageData(0, 0, width, height)
-      console.log(imageData)
+      console.log(context, width, height, rowChars)
       const  char_h = width / newRowChars,
       char_w = char_h,
       rows = height / char_h,
       map = getCharsMap(),
       cols = newRowChars
 
-      const getBlockGray = (x, y, w, h) => {
+      const getBlockGray = (x: number, y: number, w: number, h: number) => {
         let sumGray = 0, pixels;
         for (let row = 0; row < w; row++) {
           for (let col = 0; col < h; col++) {
@@ -71,7 +66,7 @@ const ImageToText = (props:ImageToTextProps) => {
                   pos_y = ~~(r * char_h),  
                   
                   avg = getBlockGray(pos_x, pos_y, ~~char_w, ~~char_h),  
-                  ch = map[avg];  
+                  ch = getCharsMap()[avg];  
                   
               output += ch;  
           }  
@@ -82,7 +77,7 @@ const ImageToText = (props:ImageToTextProps) => {
   }
   const getCharsMap = ()=>{
     const chars = ['@', 'w', '#', '$', 'k', 'd', 't', 'j', 'i', '.', ' '];  
-    const  map = {};  
+    const  map:any = {};  
     for (let i = 0; i < 256; i++) {  
         const index = ~~(i / 25)  
         map[i] = chars[index];  
