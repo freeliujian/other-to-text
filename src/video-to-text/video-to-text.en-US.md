@@ -18,6 +18,6 @@ group:
 
 **説明**
 
-- 可以使用 antd 的 ICON
-- 使用 Iconfont 的图标，等图标库
-- 贴出地址，因为我也不知道 type 的类型：//at.alicdn.com/t/font_1720118_lv0bz31erj.js
+- 视频转字符
+- 使用cav转化数据流
+- 暂未暴露api
