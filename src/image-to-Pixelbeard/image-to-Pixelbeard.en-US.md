@@ -1,5 +1,5 @@
 ---
-title: ImageToText 图片转文字
+title: ImageToPixelbeard 图片转像素风
 nav:
   title: components
   path: /components
@@ -18,4 +18,5 @@ group:
 
 **説明**
 
-- 图片转字符串
+- 图片转像素风
+- 暂时只创建了一个文件夹 QWA
