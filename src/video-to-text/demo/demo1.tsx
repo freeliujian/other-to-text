@@ -1,12 +1,9 @@
 import React from 'react';
-import {VideoToText} from 'other-to-text'
+import { VideoToText } from 'other-to-text';
 const Example = () => {
   return (
     <div>
-      
-      <VideoToText 
-      
-      />
+      <VideoToText />
     </div>
   );
 };
